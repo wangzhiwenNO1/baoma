@@ -1,8 +1,13 @@
 <template>
+	<!-- 母子健康计划 -->
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
+		<!-- top -->
+		<view class="content_top">
+			<view class="top_text">
+				<text>孕产期</text>
+				<text>您已经怀孕7周6天了</text>
+			</view>
+			<view class="bottom_text">预计还有<text>158</text>天预产期</view>
 		</view>
 	</view>
 </template>
@@ -23,30 +28,35 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
 	.content {
+		padding:38upx;
+	}
+
+.content_top{
+	display: flex;
+	flex-direction: column;
+	height: 300upx;
+	background-color: pink;
+	
+	.top_text{
 		display: flex;
-		flex-direction: column;
+		justify-content: space-between;
 		align-items: center;
-		justify-content: center;
+		font-size: 32upx;
+		color:rgba(97,51,64,1);
+		flex:1;
+		padding: 0 32upx;
+		box-sizing: border-box;
 	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
+	.bottom_text{
+		flex:2;
 		display: flex;
 		justify-content: center;
+		align-items: center;
+		margin-bottom: 10upx;
+		color:rgba(97,51,64,1);
 	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
+}
+	
 </style>
