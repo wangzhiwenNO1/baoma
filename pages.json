@@ -20,6 +20,16 @@
 	    		
 	    	}
 	    }
+		// 自我检查
+        ,{
+            "path" : "pages/self_testing/self_testing",
+            "style" : {}
+        }
+		// 检测结果
+		,{
+			"path" : "pages/self_testing/testing_result",
+			"style" : {}
+		}
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
