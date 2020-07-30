@@ -5,8 +5,22 @@
 			"style": {
 				// "navigationBarTitleText": "uni-app"
 			}
-		}
-	],
+		},
+		// 孕育状态切换输入
+		{
+			"path": "pages/gestate_type/fill_in",
+			"style": {
+				
+			}
+		},
+		// 孕育状态切换
+	    {
+	    	"path": "pages/gestate_type/gestate_type",
+	    	"style": {
+	    		
+	    	}
+	    }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "",
