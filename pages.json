@@ -19,17 +19,42 @@
 	    	"style": {
 	    		
 	    	}
-	    }
+	    },
 		// 自我检查
-        ,{
+        {
             "path" : "pages/self_testing/self_testing",
             "style" : {}
-        }
+        },
 		// 检测结果
-		,{
+		{
 			"path" : "pages/self_testing/testing_result",
 			"style" : {}
+		},
+		// 检测结果柱状图
+		{
+			"path" : "pages/self_testing/histogram",
+			"style" : {}
+		},
+		// 自我检测波浪图
+		{
+			"path":"pages/self_testing/wave",
+			"style":{}
 		}
+		// 孕育日记
+        ,{
+            "path" : "pages/diary/diary",
+            "style" : {}
+        },
+		// 发布日记
+		{
+			"path":"pages/diary/publish",
+			"style":{}
+		},
+		// 胎动记录
+        {
+            "path" : "pages/record/record",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
