@@ -54,7 +54,12 @@
         {
             "path" : "pages/record/record",
             "style" : {}
-        }
+        },
+		// 数胎动
+		{
+			"path" : "pages/record/reckon",
+			"style" : {}
+		}
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

@@ -2,8 +2,8 @@
 	<view>
 		<scroll-view scroll-x class="bg-white nav">
 			<view class="flex text-center">
-				<view class="cu-item flex-sub" :class="index==TabCur?'text-orange cur':''" v-for="(item,index) in 4" :key="index" @tap="tabSelect" :data-id="index">
-					Tab{{index}}
+				<view class="cu-item flex-sub" :class="index==TabCur?'text-pink cur':''" v-for="(item,index) in TabArr" :key="index" @tap="tabSelect" :data-id="index">
+					{{item}}
 				</view>
 			</view>
 		</scroll-view>
@@ -34,6 +34,7 @@
 	export default {
 		data() {
 			return {
+				TabArr:["全部","孕早期","孕中期","孕晚期"],
 				TabCur:0
 			}
 		},
