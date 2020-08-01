@@ -2,15 +2,29 @@
 	<view>
 		<view class="reckonTop">
 			<view class="timeBox">
-				<flipcountdown selectType="2"  :dataOrNum="3600"></flipcountdown>
+				<uni-countdown
+				    color="#FFFFFF" 
+				    background-color="#FF75A9" 
+				    border-color="#FF75A9"
+					:show-day="false"
+					:show-hour="false"
+				    :hour="0" 
+				    :minute="1" 
+				    :second="0" 
+					:reset="reset"
+					@timeup="changeTime"
+					
+				>
+				</uni-countdown>
 			</view>
+			
 			<view class="tigs">你还没有开始数胎动哦，本孕周数胎动情况</view>
 		</view>
 		<view class="numBox">
 			<view v-for="item in 6" :key="item">{{item}}</view>
 		</view>
 		<view class="btnBox">
-			<view class="startBtn">
+			<view class="startBtn" @click="startTime">
 				<text>开始</text>
 				<text>记录</text>
 			</view>
@@ -25,25 +39,46 @@
 
 <script>
 import { mapState } from 'vuex';
-import flipcountdown from '../../component/flipcountdown-uni/flipcountdown-uni.vue'
+import uniCountdown from "@/components/linnian-CountDown/uni-countdown.vue"
 
 export default {
 	components: {
-	        flipcountdown
+			uniCountdown
 	    },
 	data() {
-		return {};
+		return {
+			minute: 0,
+			reset: false,
+		};
 	},
 	computed: {
 		...mapState([])
 	},
-	mounted() {},
-	methods: {},
+	mounted() {
+		
+	},
+	methods: {
+		changeTime(e){
+			console.log(123);
+		},
+		startTime(){
+			console.log(234);
+			//我的项目中只赋值一次, 所以直接设为true了
+			this.reset = !this.reset;
+			   // //如果还要设置天, 时, 秒, 在上面声明绑定后, 在这里赋值即可
+			   // this.minute = 30;
+		},
+	},
 	onReachBottom() {}
 };
 </script>
 
 <style lang="scss">
+	.uni-countdown{
+		font-size: 40upx;
+	}
+	
+	
 	.reckonTop{
 		padding:40upx;
 		box-sizing: border-box;
@@ -54,6 +89,10 @@ export default {
 		background: #ff75a9;
 		box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.35) inset; 
 		margin: 30upx auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 20upx;
 	}
 	.tigs{
 		text-align: center;
