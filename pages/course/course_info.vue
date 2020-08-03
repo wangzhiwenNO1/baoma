@@ -34,7 +34,7 @@
 							<view class="num">1</view>
 							<view>
 								<view class="title">疫情当前，需要推迟产检吗</view>
-								<view>
+								<view class="timeBox">
 									<i class="icon"></i>
 									<text class="margin-right">01:14</text>
 									<text>2020.03.11更新</text>
@@ -42,7 +42,8 @@
 							</view>
 						</view>
 						<view class="rightBox">
-							<i class="icon"></i><text>播放</text>
+							<i class="icon"></i>
+							<text>播放</text>
 						</view>
 					</li>
 				</ul>
@@ -156,7 +157,7 @@ export default {
 					justify-content: space-between;
 					padding:20upx;
 					
-					.iocn{
+					.icon{
 						display: inline-block;
 					}
 					
@@ -171,13 +172,17 @@ export default {
 							color: #333;
 							margin-bottom: 10upx;
 						}
+						.timeBox{
+							display: flex;
+							align-items: center;
+						}
 						
 						.icon{
 							width: 30upx;
 							height: 30upx;
 							background-color: pink;
+							margin-right: 0.3rem;
 						}
-						
 						
 						.num{
 							padding:10upx 20upx;
@@ -190,6 +195,15 @@ export default {
 						align-self: flex-end;
 						font-size: 24upx;
 						color: #989898;
+						display: flex;
+						align-items: flex-end;
+						
+						.icon{
+							width: 50upx;
+							height: 50upx;
+							background-color: pink;
+							margin-right: 0.3rem;
+						}
 					}
 				}
 			}
