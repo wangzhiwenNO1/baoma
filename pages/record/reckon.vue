@@ -32,7 +32,7 @@
 		</view>
 		<view class="tigsBox">
 			<text>专家建议孕28周后早中晚都要数胎动</text>
-			<text>什么是胎动></text>
+			<text class="tigsBlue">什么是胎动></text>
 		</view>
 	</view>
 </template>
@@ -150,6 +150,12 @@ export default {
 		flex-direction: column;
 		align-items: center;
 		margin-top: 70upx;
+	}
+	
+	.tigsBlue{
+		color: #2AABFC;
+		margin-top: 1.2rem;
+		border-bottom: 2upx solid;
 	}
 	
 </style>

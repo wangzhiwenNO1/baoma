@@ -16,9 +16,6 @@ export default {
 @import './component/colorui/main.css';
 @import './component/colorui/icon.css';
 /*每个页面公共css */
-* {
-	font-size: 30upx;
-}
 
 html,
 body,

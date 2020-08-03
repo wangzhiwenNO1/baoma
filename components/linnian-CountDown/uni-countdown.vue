@@ -68,7 +68,7 @@
 				timer: null,
 				d: '00',
 				h: '00',
-				i: '00',
+				i: '01',
 				s: '00',
 				leftTime: 0,
 				seconds: 0

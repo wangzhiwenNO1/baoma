@@ -59,6 +59,16 @@
 		{
 			"path" : "pages/record/reckon",
 			"style" : {}
+		},
+		// 我的课程
+        {
+            "path" : "pages/course/course",
+            "style" : {}
+        },
+		// 课程介绍
+		{
+		    "path" : "pages/course/course_info",
+		    "style" : {}
 		}
     ],
 	"globalStyle": {
