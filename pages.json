@@ -69,6 +69,11 @@
 		{
 		    "path" : "pages/course/course_info",
 		    "style" : {}
+		},
+		// 文章
+		{
+			"path":"pages/course/article",
+			"style":{}
 		}
     ],
 	"globalStyle": {
