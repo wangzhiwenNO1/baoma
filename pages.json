@@ -74,6 +74,21 @@
 		{
 			"path":"pages/course/article",
 			"style":{}
+		},
+		// 学校
+		{
+			"path":"pages/course/school",
+			"style":{}
+		}
+		// 我的
+        ,{
+            "path" : "pages/mine/mine",
+            "style" : {}
+        },
+		// 身份认证
+		{
+			"path":"pages/mine/attestation",
+			"style" : {}
 		}
     ],
 	"globalStyle": {

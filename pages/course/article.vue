@@ -9,18 +9,18 @@
 		</view>
 		<view class="xian"></view>
 		<view class="content"></view>
-		<view>
-			<view>推荐阅读</view>
+		<view class="recommend">
+			<view class="title">推荐阅读</view>
 			<ul>
 				<li class="flex">
-					<view class="">
-						<view>内容标题摘要标题标题摘要标题摘要</view>
+					<view class="textBox">
+						<view class="text">内容标题摘要标题标题摘要标题摘要</view>
 						<view>文章来源</view>
 					</view>
 					<view class="imgBox"></view>
 				</li>
 			</ul>
-			<view>更多推荐内容</view>
+			<view class="more">更多推荐内容</view>
 		</view>
 		<view class="footerBox">
 			<i class="icon_edit"></i>
@@ -97,6 +97,49 @@ export default {
 				border:1px solid #EEE;
 				transform: rotate(45deg);
 				background-color: #FFF;
+			}
+		}
+		
+		.recommend{
+			.title{
+				text-align: center;
+				border-bottom: 2upx solid #A3C9FF;
+				width: 160upx;
+				margin:10upx auto;
+			}
+			ul{
+				li{
+					justify-content: space-between;
+					border-bottom: 2upx solid #EEEEEE;
+					padding:20upx 0;
+					
+					.textBox{
+						color: #999999;
+						font-size: 25upx;
+						.text{
+							font-size: 30upx;
+							margin-bottom: 20upx;
+							color:#333333;
+						}
+					}
+					
+					
+					.imgBox{
+						width: 200upx;
+						height: 160upx;
+						background-color: #EEE;
+						flex-shrink: 0;
+						border-radius: 10upx;
+						margin-left: 20upx;
+					}
+				}
+			}
+			
+			.more{
+				text-align: center;
+				color: #1679FF;
+				margin:20upx;
+				font-size: 26upx;
 			}
 		}
 		
