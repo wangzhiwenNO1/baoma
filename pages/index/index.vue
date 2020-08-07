@@ -40,6 +40,8 @@
 </template>
 
 <script>
+	var jweixin = require('jweixin-module')
+	
 	export default {
 		data() {
 			return {
@@ -47,7 +49,9 @@
 			}
 		},
 		onLoad() {
-
+			jweixin.ready(function(){
+			    // TODO
+			});
 		},
 		methods: {
 
