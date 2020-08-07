@@ -89,6 +89,36 @@
 		{
 			"path":"pages/mine/attestation",
 			"style" : {}
+		},
+		// 投稿
+		{
+			"path":"pages/mine/contribute",
+			"style" : {}
+		},
+		// 免责声明
+		{
+			"path":"pages/mine/statement",
+			"style":{}
+		}
+		// 附近医院
+        ,{
+            "path" : "pages/hospital/hospital",
+            "style" : {}
+        },
+		// 医院详情
+		{
+			"path" : "pages/hospital/hospital_info",
+			"style" : {}
+		}
+		// 产检计划
+        ,{
+            "path" : "pages/antenatal/antenatal",
+            "style" : {}
+        },
+		// 免检计划
+		{
+			"path":"pages/antenatal/exemption",
+			"style":{}
 		}
     ],
 	"globalStyle": {
