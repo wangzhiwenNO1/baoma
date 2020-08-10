@@ -6,8 +6,8 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
 	state: {
 		hasLogin: false,
+		token:"",
 		userInfo: {},
-		isPlay:true,
 		infoRes:{
 			// encryptedData: "eECjEPLHFvM+j1dXtgantCUSxAnR5OH2O3g2wejJ/BMBxyfSyI+cLePUHrNIc1G4O0wUwn4BPMAcfHKSU4LaerHORPmNdNsRR23MDf7f9gzb3OHdUB5DLNjABOHj4ShSiYUuUgQxOWW4ntqzO3ZpxUyMjokjU6jyRpX3Ry/U/I4x4KWR7nrs6wM7AyUmC+23guj4ZdOzt2x3PT4BIWETFw7RMOLSZ4A8Vno7WyIembErQRX+5o1jSQcD+pryeOXqpLs93xUeA5PkqppibRbYVfNuaRK2YOqUGj5KCYl45tGUQJNgKuP2gDw9wioSWxIW5n48KaAMo5wu2VxeWgyu+jk2dB5cD9rUYbDxSxrBh0aTs2JvYkapRupu0H/9EdjprlXGwug0XKROloDCRin03HhjGrNIXlHvHJ6Ym60GBFQPLeXyR/xa4tEhorS2QvfizJ4orjaAr156EEcYzzTksxyYkgjzLht8vdENA98tqCg=",
 			// errMsg: "getUserInfo:ok",
@@ -25,12 +25,9 @@ const store = new Vuex.Store({
 			// }
 			
 		},
-		showTime:"2020/3/21",
 	},
 	mutations: {
-		SoundPlay(state, provider){
-			state.isPlay=provider;
-		},
+		
 		login(state, provider) {
 
 			state.hasLogin = true;
@@ -39,6 +36,9 @@ const store = new Vuex.Store({
 			    key: 'userInfo',  
 			    data: provider  
 			})
+		},
+		changeToken(state, provider){
+			state.token = provider;
 		},
 		getInfoRes(state, provider){
 			state.infoRes = provider;
