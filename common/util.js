@@ -31,7 +31,13 @@ const requestData = (opt) => {
 			header: opt.header,
 			dataType: opt.dataType,
 			success: function(res) {
-				resolve(res.data);
+				if(res.data.code==1){
+					resolve(res.data);
+				}else{
+					uni.showToast({
+						title: res.data.message
+					});
+				}
 			},
 			fail: function() {
 				uni.showToast({

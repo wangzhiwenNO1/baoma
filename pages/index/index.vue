@@ -85,7 +85,9 @@ export default {
 			});
 			console.log("获取孕育状态",res);
 			if(res.code==1){
-				
+				uni.showToast({
+					title: res.data.message
+				});
 			}
 		},
 	}

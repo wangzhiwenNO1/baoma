@@ -1,7 +1,7 @@
 <template>
 	<view class="typeBox">
 		<radio-group class="block radioBox" @change="RadioChange">
-			<view class="radioItemBox" v-for="item in 3" :key="item">
+			<view class="radioItemBox" v-for="(item,index) in radioArr" :key="index">
 				<view class="station"></view>
 				<view class="itemLeft">
 					<view class="title">孕育状态</view>
@@ -16,7 +16,7 @@
 			
 		</radio-group>
 		<view class="btnBox">
-			<view class="btn">切换</view>
+			<view class="btn" @tap="changeStatus">切换</view>
 		</view>
 	</view>
 </template>
@@ -26,16 +26,45 @@
 export default {
 	data() {
 		return {
-			radio: '1',
+			radioArr:["G","C","R"],//G:关注孕妇,C:关注婴儿 R:备孕
+			radio: "R",
 		};
 	},
 	computed: {
 		
 	},
-	mounted() {},
+	mounted() {
+		this.getStatus();
+	},
 	methods: {
 		RadioChange(e) {
 			this.radio = e.detail.value
+		},
+		async getStatus() {
+			let that = this;
+			let res = await that.$api.requestData({
+				url: '/gravidawiki/gravidaInfo/getStatus',
+				method: 'GET',
+				data: {
+					type:1
+				}
+			});
+			console.log("获取孕育状态",res);
+			if(res.code==1){
+				that.radio=res.data
+			}
+		},
+		async changeStatus() {
+			let that = this;
+			let res = await that.$api.requestData({
+				url: '/gravidawiki/gravidaInfo/updateStatus',
+				method: 'POST',
+				data: {newstatus:that.radio}
+			});
+			console.log("修改孕育状态",res);
+			if(res.code==1){
+				
+			}
 		},
 	},
 	onReachBottom() {}
