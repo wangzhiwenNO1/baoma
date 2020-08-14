@@ -18,8 +18,8 @@
 			</li>
 			<li>
 				<text class="title">孕育状态</text>
-				<picker mode="date" :value="formData.aexFlag" :start="startDate" :range="aexFlagArr" @change="bindAexFlag">
-					<view class="uni-input">{{ formData.aexFlag }}</view>
+				<picker value="0" :range="aexFlagArr" @change="bindAexFlag">
+					<view class="uni-input">{{ aexFlag }}</view>
 				</picker>
 			</li>
 			<li>
@@ -65,9 +65,10 @@ export default {
 				edc: this.getDate('end'), // 预产期 2019-02-12
 				contactMtel: '', // 紧急联人系电话 13300000000
 				relationType: '', // 与紧急联系人关系 丈夫
-				aexFlag: '' //孕育状态
+				aexFlag: 'R' //孕育状态
 			},
 			aexFlagArr: ['关注孕妇', '关注婴儿', '备孕'],
+			aexFlag: '备孕',
 			time: this.getDate('start'),
 			eddTime: this.getDate('end')
 		};
@@ -89,7 +90,23 @@ export default {
 			this.eddTime = e.target.value;
 		},
 		bindAexFlag(e) {
-			console.log(e);
+			console.log(e.detail);
+			let str = '';
+			switch (e.detail.value) {
+				case 0:
+					str = 'G';
+					console.log(e.detail);
+					break;
+				case 1:
+					str = 'C';
+					break;
+				case 2:
+					str = 'R';
+					break;
+				default:
+					break;
+			}
+			this.formData.aexFlag = str;
 		},
 		getDate(type) {
 			const date = new Date();
@@ -111,10 +128,14 @@ export default {
 			let res = await that.$api.requestData({
 				url: '/gravidawiki/gravidaInfo/addEntity',
 				method: 'POST',
-				data: that.formData
+				data: that.formData,
+				header: {
+					'Content-Type': 'application/json'
+				}
 			});
 			console.log('保存孕妇信息', res);
 			if (res.code == 1) {
+				
 			}
 		}
 	},

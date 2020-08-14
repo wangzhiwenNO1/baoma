@@ -2,21 +2,25 @@
 	<view>	
 		<view class="bgBox"></view>
 
-		<view class="cu-timeline" v-for="item in 3" :key="item">
+		<view class="cu-timeline" v-for="(item,index) in 3" :key="index">
 			<view class="cu-time">
 				<view class="year">2020</view>
 				<view class="month">06-17</view>
 			</view>
 			<view class="cu-item">
-				<view class="title">孕30周</view>
+				<view class="title">{{item.title}}</view>
 				<view class="content">
-					<text>今天是我怀孕的第30周，真的好期待我的宝宝能快点出生，我真的好幸福啊。</text> 
+					<text>{{item.content}}</text> 
 				</view>
-				<view class="imgBox"></view>
-				<view class="timeBox">2020-05-19 21:55:43</view>
+				<view class="imgBox" v-if="item.image1">
+					<!-- <img :src="item.image1" alt=""> -->
+				</view>
+				<view class="imgBox" v-if="item.video">
+					<!-- <video :src="item.video" controls></video> -->
+				</view>
+				<view class="timeBox">{{item.createTime}}</view>
 			</view>
 		</view>
-		
 		
 	</view>
 </template>
@@ -25,8 +29,25 @@
 	export default {
 		data() {
 			return {
-
+				diaryList:[]
 			};
+		},
+		mounted() {
+			this.getDiaryList();
+		},
+		methods:{
+			async getDiaryList() {
+				let that = this;
+				let res = await that.$api.requestData({
+					url: '/gravidawiki/pregnancyDiary/findMyPregnancyDiary',
+					method: 'POST',
+					data: {}
+				});
+				console.log("历史日记",res);
+				if(res.code==1){
+					that.diaryList=res.data;
+				}
+			},
 		}
 	}
 </script>

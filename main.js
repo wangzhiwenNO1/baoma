@@ -1,13 +1,14 @@
 import Vue from 'vue'
 import store from './store'
 import App from './App'
-import requestData from "./common/util.js"
+import util from "./common/util.js"
 
 
 
 Vue.config.productionTip = false
 Vue.prototype.$api = {
-	requestData,
+	requestData:util.requestData,
+	formatTime:util.formatTime
 };
 Vue.prototype.$store = store
 

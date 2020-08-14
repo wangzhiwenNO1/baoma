@@ -71,6 +71,13 @@ export default {
 			});
 			if(res.code==1){
 				that.changeToken(res.data);
+				uni.setStorage({
+				    key: 'token',
+				    data: res.data,
+				    success: function () {
+				        console.log('success',res.data);
+				    }
+				});
 				that.getStatus();
 			}
 		},

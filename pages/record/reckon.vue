@@ -1,27 +1,30 @@
 <template>
 	<view>
 		<view class="reckonTop">
-			<view class="timeBox">
-				<uni-countdown
-				    color="#FFFFFF" 
-				    background-color="#FF75A9" 
-				    border-color="#FF75A9"
-					:show-day="false"
-					:show-hour="false"
-				    :hour="0" 
-				    :minute="1" 
-				    :second="0" 
-					:reset="reset"
-					@timeup="changeTime"
-					
-				>
-				</uni-countdown>
+			<view class="outTime">
+				<view class="timeBox">
+					<uni-countdown
+					    color="#FFFFFF" 
+					    background-color="#FF75A9" 
+					    border-color="#FF75A9"
+						:show-day="false"
+						:show-hour="false"
+					    :hour="0" 
+					    :minute="1" 
+					    :second="0" 
+						:reset="reset"
+						@timeup="changeTime"
+						
+					>
+					</uni-countdown>
+				</view>
 			</view>
+			
 			
 			<view class="tigs">你还没有开始数胎动哦，本孕周数胎动情况</view>
 		</view>
 		<view class="numBox">
-			<view v-for="item in 6" :key="item">{{item}}</view>
+			<view v-for="item in 6" :key="item" @tap="addEntity(item)">{{item}}</view>
 		</view>
 		<view class="btnBox">
 			<view class="startBtn" @click="startTime">
@@ -68,6 +71,25 @@ export default {
 			   // //如果还要设置天, 时, 秒, 在上面声明绑定后, 在这里赋值即可
 			   // this.minute = 30;
 		},
+		async addEntity(item) {
+			let that = this;
+			let res = await that.$api.requestData({
+				url: '/gravidawiki/fetalMovement/addEntity',
+				method: 'POST',
+				data: {
+					times:item
+				},
+				header: {
+					'Content-Type': 'application/json'
+				}
+			});
+			console.log("胎动记录保存",res);
+			if(res.code==1){
+				uni.showToast({
+					title: res.message
+				});
+			}
+		},
 	},
 	onReachBottom() {}
 };
@@ -83,11 +105,17 @@ export default {
 		padding:40upx;
 		box-sizing: border-box;
 	}
-	.timeBox{
+	.outTime{
 		width: 60%;
+		margin: 0 auto;
+		box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.35);
+		border-radius: 20upx;
+	}
+	.timeBox{
+		
 		height: 200upx;
 		background: #ff75a9;
-		box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.35) inset; 
+		box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.35) inset;
 		margin: 30upx auto;
 		display: flex;
 		justify-content: center;

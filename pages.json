@@ -10,122 +10,120 @@
 		{
 			"path": "pages/gestate_type/fill_in",
 			"style": {
-				
+				"navigationBarTitleText": "孕育状态切换"
 			}
 		},
 		// 孕育状态切换
-	    {
-	    	"path": "pages/gestate_type/gestate_type",
-	    	"style": {
-	    		
-	    	}
-	    },
+		{
+			"path": "pages/gestate_type/gestate_type",
+			"style": {}
+		},
 		// 自我检查
-        {
-            "path" : "pages/self_testing/self_testing",
-            "style" : {}
-        },
+		{
+			"path": "pages/self_testing/self_testing",
+			"style": {}
+		},
 		// 检测结果
 		{
-			"path" : "pages/self_testing/testing_result",
-			"style" : {}
+			"path": "pages/self_testing/testing_result",
+			"style": {}
 		},
 		// 检测结果柱状图
 		{
-			"path" : "pages/self_testing/histogram",
-			"style" : {}
+			"path": "pages/self_testing/histogram",
+			"style": {}
 		},
 		// 自我检测波浪图
 		{
-			"path":"pages/self_testing/wave",
-			"style":{}
+			"path": "pages/self_testing/wave",
+			"style": {}
 		}
 		// 孕育日记
-        ,{
-            "path" : "pages/diary/diary",
-            "style" : {}
-        },
+		, {
+			"path": "pages/diary/diary",
+			"style": {}
+		},
 		// 发布日记
 		{
-			"path":"pages/diary/publish",
-			"style":{}
+			"path": "pages/diary/publish",
+			"style": {}
 		},
 		// 胎动记录
-        {
-            "path" : "pages/record/record",
-            "style" : {}
-        },
+		{
+			"path": "pages/record/record",
+			"style": {}
+		},
 		// 数胎动
 		{
-			"path" : "pages/record/reckon",
-			"style" : {}
+			"path": "pages/record/reckon",
+			"style": {}
 		},
 		// 我的课程
-        {
-            "path" : "pages/course/course",
-            "style" : {}
-        },
+		{
+			"path": "pages/course/course",
+			"style": {}
+		},
 		// 课程介绍
 		{
-		    "path" : "pages/course/course_info",
-		    "style" : {}
+			"path": "pages/course/course_info",
+			"style": {}
 		},
 		// 文章
 		{
-			"path":"pages/course/article",
-			"style":{}
+			"path": "pages/course/article",
+			"style": {}
 		},
 		// 学校
 		{
-			"path":"pages/course/school",
-			"style":{}
+			"path": "pages/course/school",
+			"style": {}
 		}
 		// 我的
-        ,{
-            "path" : "pages/mine/mine",
-            "style" : {}
-        },
+		, {
+			"path": "pages/mine/mine",
+			"style": {}
+		},
 		// 身份认证
 		{
-			"path":"pages/mine/attestation",
-			"style" : {}
+			"path": "pages/mine/attestation",
+			"style": {}
 		},
 		// 投稿
 		{
-			"path":"pages/mine/contribute",
-			"style" : {}
+			"path": "pages/mine/contribute",
+			"style": {}
 		},
 		// 免责声明
 		{
-			"path":"pages/mine/statement",
-			"style":{}
+			"path": "pages/mine/statement",
+			"style": {}
 		}
 		// 附近医院
-        ,{
-            "path" : "pages/hospital/hospital",
-            "style" : {}
-        },
+		, {
+			"path": "pages/hospital/hospital",
+			"style": {}
+		},
 		// 医院详情
 		{
-			"path" : "pages/hospital/hospital_info",
-			"style" : {}
+			"path": "pages/hospital/hospital_info",
+			"style": {}
 		}
 		// 产检计划
-        ,{
-            "path" : "pages/antenatal/antenatal",
-            "style" : {}
-        },
+		, {
+			"path": "pages/antenatal/antenatal",
+			"style": {}
+		},
 		// 免检计划
 		{
-			"path":"pages/antenatal/exemption",
-			"style":{}
+			"path": "pages/antenatal/exemption",
+			"style": {}
 		}
-    ],
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8",
-		"navigationStyle":"custom"
+		"navigationStyle": "custom"
 	}
 }
