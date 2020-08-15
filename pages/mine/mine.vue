@@ -107,6 +107,24 @@
 			return {
 				
 			};
+		},
+		mounted() {
+			
+		},
+		methods:{
+			getMyScore(){
+				let that = this;
+				let res = await that.$api.requestData({
+					url: '/member/memberInfo/getMyScore',
+					method: 'GET',
+					data: {},
+					
+				});
+				console.log('获取会员级别、积分', res);
+				if (res.code == 1) {
+					
+				}
+			},
 		}
 	}
 </script>
