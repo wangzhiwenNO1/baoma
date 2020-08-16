@@ -7,7 +7,7 @@
 				<view>
 					<view>
 						<text>用户名</text>
-						<text class="level">LV.01</text>
+						<text class="level">LV.{{myScore.mlevel}}</text>
 					</view>
 					<view class="digest ">摘要信息</view>
 				</view>
@@ -105,14 +105,15 @@
 	export default {
 		data() {
 			return {
+				myScore:{},//会员级别，积分
 				
 			};
 		},
 		mounted() {
-			
+			this.getMyScore();
 		},
 		methods:{
-			getMyScore(){
+			async getMyScore(){
 				let that = this;
 				let res = await that.$api.requestData({
 					url: '/member/memberInfo/getMyScore',
@@ -122,7 +123,7 @@
 				});
 				console.log('获取会员级别、积分', res);
 				if (res.code == 1) {
-					
+					that.myScore=res.data;
 				}
 			},
 		}

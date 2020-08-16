@@ -15,6 +15,19 @@
 					<view class="cu-tag line-blue">中国大陆</view>
 				</view>
 			</view>
+			<view class="cu-form-group ">
+				<view class="title">证件类型</view>
+				<picker @change="PickerChange" :value="index" :range="picker">
+					<view class="picker">
+						{{index>-1?picker[index]:'身份证'}}
+					</view>
+				</picker>
+			</view>
+			
+			<view class="cu-form-group">
+				<view class="title">证件号码</view>
+				<input v-model="formData.idno" placeholder="请输入手机号" name="input"></input>
+			</view>
 			
 			<view class="cu-form-group">
 				<view class="title">验证码</view>
@@ -22,14 +35,7 @@
 				<button class='cu-btn bg-pinnk shadow'>验证码</button>
 			</view>
 			
-			<view class="cu-form-group ">
-				<view class="title">普通选择</view>
-				<picker @change="PickerChange" :value="index" :range="picker">
-					<view class="picker">
-						{{index>-1?picker[index]:'禁止换行，超出容器部分会以 ... 方式截断'}}
-					</view>
-				</picker>
-			</view>
+			
 			<view class="radioBox">
 				<radio class=' margin-right' :class="radio=='C'?'checked':''" :checked="radio=='C'?true:false" value="C"></radio>
 				<view>同意<text>《用户授权协议》</text></view>
@@ -48,6 +54,11 @@
 				index: -1,
 				picker: ['喵喵喵', '汪汪汪', '哼唧哼唧'],
 				radio:"C",
+				formData:{
+					name:"",
+					idType:1,
+					idno:""
+				}
 			};
 		},
 		methods: {
@@ -56,6 +67,19 @@
 			},
 			RadioChange(e) {
 				this.radio = e.detail.value
+			},
+			async register(){
+				let that = this;
+				let res = await that.$api.requestData({
+					url: '/mqtt/userprod/register',
+					method: 'POST',
+					data: that.formData,
+					
+				});
+				console.log('会员认证数据保存', res);
+				if (res.code == 1) {
+					
+				}
 			},
 		}
 	}
