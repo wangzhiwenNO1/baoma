@@ -32,6 +32,7 @@ const util = {
 
 		let ApiUrl = "http://www.baomabaodian.com/gravidawiki";
 
+		// let ApiUrl = "http://39.100.8.42/gravidawiki";
 
 		return new Promise((resolve, reject) => {
 			uni.request({

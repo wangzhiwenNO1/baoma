@@ -3,10 +3,12 @@
 		<view class="userInfo flex">
 			
 			<view class="userTextBox flex">
-				<view class="avatar"></view>
+				<view class="avatar">
+					<img :src="userInfo.avatarUrl" alt="">
+				</view>
 				<view>
 					<view>
-						<text>用户名</text>
+						<text>{{userInfo.realName}}</text>
 						<text class="level">LV.{{myScore.mlevel}}</text>
 					</view>
 					<view class="digest ">摘要信息</view>
@@ -106,13 +108,33 @@
 		data() {
 			return {
 				myScore:{},//会员级别，积分
-				
+				userInfo:{},//用户信息
 			};
 		},
 		mounted() {
+			this.getUserInfo();
 			this.getMyScore();
 		},
 		methods:{
+			async getUserInfo(){
+				let that = this;
+				let res = await that.$api.requestData({
+					url: '/getUser',
+					method: 'GET',
+					data: {},
+					
+				});
+				console.log('获取用户信息', res);
+				if (res.code == 1) {
+					that.userInfo=res.data;
+					uni.setStorage({
+					    key: 'userInfo',
+					    data: res.data,
+					    success: function () {
+					    }
+					});
+				}
+			},
 			async getMyScore(){
 				let that = this;
 				let res = await that.$api.requestData({
@@ -126,6 +148,7 @@
 					that.myScore=res.data;
 				}
 			},
+			
 		}
 	}
 </script>

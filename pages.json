@@ -83,6 +83,11 @@
 			"path": "pages/mine/mine",
 			"style": {}
 		},
+		// 我的推客
+		{
+			"path": "pages/mine/twitter",
+			"style": {}
+		},
 		// 身份认证
 		{
 			"path": "pages/mine/attestation",

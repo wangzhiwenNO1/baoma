@@ -75,7 +75,6 @@ export default {
 				    key: 'token',
 				    data: res.data,
 				    success: function () {
-				        console.log('success',res.data);
 				    }
 				});
 				that.getStatus();
