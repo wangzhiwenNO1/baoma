@@ -5,15 +5,17 @@
 		<view class="cu-timeline" v-for="(item, index) in 3" :key="index">
 			<view class="cu-time" v-if="index == 0">
 				<view class="yuan firstYuan"></view>
-				<!-- <view class="year">2020</view>
-				<view class="month">06-17</view> -->
 			</view>
 			<view class="cu-item firstItem" v-if="index == 0">
 				<view class="content firstContent">
 					<view class="firstText">
 						<view class="dateBox">
 							<view>预产期：2020-05-05</view>
-							<view class="remind">设置提醒</view>
+							<view class="remind">
+								<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindRemind">
+									<view class="uni-input">设置提醒</view>
+								</picker>
+							</view>
 						</view>
 						<view>实际产检时间以当地医院提供为准，仅供参考</view>
 					</view>
@@ -22,8 +24,7 @@
 
 			<view class="cu-time">
 				<view class="yuan"></view>
-				<!-- <view class="year">2020</view>
-				<view class="month">06-17</view> -->
+				
 			</view>
 			<view class="cu-item">
 				<view class="titleBox">
@@ -56,6 +57,7 @@ export default {
 			index: 0,
 			date: currentDate,
 			planInfo:{},
+			ptDate:"",//产检日期
 
 		};
 	},
@@ -68,7 +70,8 @@ export default {
 		}
 	},
 	mounted() {
-		this.getPlan();
+		let that=this;
+		that.getPlan();
 	},
 	methods: {
 		bindDateChange(e,index) {
@@ -86,6 +89,25 @@ export default {
 			console.log("获取产检计划",res);
 			if(res.code==1){
 				that.planInfo=res.data;
+			}
+		},
+		// 设置产检日期和提醒
+		async bindRemind(e){
+			console.log(e);
+			return;
+			let that = this;
+			let res = await that.$api.requestData({
+				url: '/gravidawiki/pregnancyTestPlan/addEntity',
+				method: 'POST',
+				data: {
+					id:that.planInfo.id,
+					ptDate:e.detail.value,//产检日期
+					isRemind:that.planInfo.isRemind?0:1,//是否提醒
+				}
+			});
+			console.log("设置产检日期和提醒",res);
+			if(res.code==1){
+				that.getPlan();
 			}
 		},
 		
@@ -197,9 +219,12 @@ export default {
 				background-color: #fff;
 				color: $uni-bg-pink;
 				border-radius: 10upx;
-				font-size: 24upx;
 				line-height: 50upx;
 				padding: 0 20upx;
+				
+				.uni-input{
+					font-size: 24upx;
+				}
 			}
 
 			.firstText {
