@@ -1,9 +1,8 @@
 <template>
 	<view class="page" @touchstart="touchStart" @touchend="touchEnd">
 		<form>
-			
 			<view class=""><textarea placeholder="这一刻的想法..." v-model="input_content" /></view>
-			
+
 			<view class="uni-list list-pd">
 				<view class="uni-list-cell cell-pd">
 					<view class="uni-uploader">
@@ -19,30 +18,30 @@
 										<view class="close-view" @click="close(index)">×</view>
 									</view>
 								</block>
-								<view class="uni-uploader__input-box" v-show="imageList.length < 9"><view class="uni-uploader__input" @tap="chooseImage"></view></view>
+								<view class="uni-uploader__input-box" v-show="imageList.length < 3"><view class="uni-uploader__input" @tap="chooseImage"></view></view>
 							</view>
 						</view>
 					</view>
 				</view>
 			</view>
-			
+
 			<view class="openBox">
 				<view>此消息是否公开</view>
 				<view class="openBtn">
 					<view class="optnText">公开</view>
 					<view>
 						<!-- #ifdef MP-ALIPAY -->
-						<switch class='red' @change="SwitchB" :class="switchB?'checked':''" :checked="switchB?true:false" color="#e54d42"></switch>
+						<switch class="red" @change="SwitchB" :class="switchB ? 'checked' : ''" :checked="switchB ? true : false" color="#e54d42"></switch>
 						<!-- #endif -->
-						
+
 						<!-- #ifndef MP-ALIPAY -->
-						<switch class='red' @change="SwitchB" :class="switchB?'checked':''" :checked="switchB?true:false"></switch>
+						<switch class="red" @change="SwitchB" :class="switchB ? 'checked' : ''" :checked="switchB ? true : false"></switch>
 						<!-- #endif -->
 					</view>
 					<view class="optnText">私密</view>
 				</view>
 			</view>
-			
+
 			<view class="tigs">坚持发布动态，在宝宝降生以后，我们会免费为你制作一份专属文章推送在我们的瓶体上面，如有需要可以制作成画册留作纪念。</view>
 		</form>
 		<view class="btnRow">
@@ -64,7 +63,7 @@ export default {
 	},
 	data() {
 		return {
-			switchB:false,
+			switchB: false,
 			// title: 'choose/previewImage',
 			input_content: '',
 			imageList: [],
@@ -109,9 +108,7 @@ export default {
 	},
 
 	methods: {
-		SwitchB(){
-			
-		},
+		SwitchB() {},
 		async publish() {
 			let that = this;
 			if (!this.input_content && this.imageList.length == 0) {
@@ -234,7 +231,7 @@ export default {
 				});
 			});
 		},
-		
+
 		definite() {
 			this.topic = this.topicInput;
 			this.topicInput = '';
@@ -245,7 +242,7 @@ export default {
 			this.imageList.splice(e, 1);
 		},
 		chooseImage: async function() {
-			if (this.imageList.length === 9) {
+			if (this.imageList.length === 3) {
 				let isContinue = await this.isFullImg();
 
 				if (!isContinue) {
@@ -311,7 +308,7 @@ export default {
 </script>
 
 <style lang="scss">
-	@import '../../static/css/uni.css';
+@import '../../static/css/uni.css';
 page {
 	background-color: #ffffff;
 }
@@ -429,7 +426,6 @@ page {
 	width: 100%;
 
 	.release {
-		
 		background-color: $uni-bg-pink;
 		color: #ffffff;
 		border-radius: 20upx;
@@ -514,27 +510,25 @@ image {
 	height: 100%;
 }
 
-.openBox{
+.openBox {
 	display: flex;
 	width: 100%;
 	justify-content: space-between;
 	align-items: center;
-	margin:40upx 0;
-	color:rgba(73,73,73,1);
-	
-	.openBtn{
+	margin: 40upx 0;
+	color: rgba(73, 73, 73, 1);
+
+	.openBtn {
 		display: flex;
 		align-items: center;
-		
-		.optnText{
-			margin:0 20upx;
+
+		.optnText {
+			margin: 0 20upx;
 		}
 	}
-	
-	
 }
-.tigs{
+.tigs {
 	text-indent: 60upx;
-	color: rgba(89,89,89,1);
+	color: rgba(89, 89, 89, 1);
 }
 </style>

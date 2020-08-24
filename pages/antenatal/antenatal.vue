@@ -93,8 +93,7 @@ export default {
 		},
 		// 设置产检日期和提醒
 		async bindRemind(e){
-			console.log(e);
-			return;
+			
 			let that = this;
 			let res = await that.$api.requestData({
 				url: '/gravidawiki/pregnancyTestPlan/addEntity',
