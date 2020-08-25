@@ -3,6 +3,7 @@ import store from '../store'
 
 
 const util = {
+	baseUrl:"http://www.baomabaodian.com/gravidawiki",
 	requestData: (opt) => {
 
 		// let AuthToken = store.state.token;
@@ -28,11 +29,11 @@ const util = {
 
 		opt.dataType = opt.dataType || "json";
 		opt.success = opt.success || function() {};
+		console.log(util);
 
+		let ApiUrl = util.baseUrl;
 
-		let ApiUrl = "http://www.baomabaodian.com/gravidawiki";
-
-		// let ApiUrl = "http://39.100.8.42/gravidawiki";
+		// let ApiUrl = "http://39.100.8.42/gravidawiki"; //线下地址
 
 		return new Promise((resolve, reject) => {
 			uni.request({

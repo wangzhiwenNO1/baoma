@@ -115,6 +115,14 @@ export default {
 				uni.showModal({ content: '内容不能为空', showCancel: false });
 				return;
 			}
+			
+			let AuthToken = "";
+			uni.getStorage({
+				key: 'token',
+				success: function(res) {
+					AuthToken = res.data;
+				}
+			});
 
 			uni.showLoading({ title: '发布中' });
 
@@ -127,10 +135,13 @@ export default {
 
 					uni.uploadFile({
 						//该上传仅为示例,可根据自己业务修改或封装,注意:统一上传可能会导致服务器压力过大
-						url: 'https://www.hrxyljk.com:7000/hyhealth/common/fileUpload.do', //仅为示例，非真实的接口地址
+						url: that.$api.baseUrl+'/upload/file', //仅为示例，非真实的接口地址
 						files: images, //有files时,会忽略filePath和name
 						filePath: this.imageList[i],
 						name: 'image-' + i,
+						header:{
+							AuthToken : AuthToken
+						},
 						success: uploadFileRes => {
 							let data = JSON.parse(uploadFileRes.data);
 
@@ -168,22 +179,24 @@ export default {
 			// }
 		},
 		async sendData(images) {
+			
 			let that = this;
 			let result = await that.$api.requestData({
 				url: '/freedomSquare/addDynamic',
 				kind: 2,
 				method: 'POST',
-
 				// header: {
 				// 	'Content-Type': 'application/json'
 				// },
 				data: {
-					userId: that.userInfo.openId, //登录者id
-					content: that.input_content,
-					'images[]': JSON.stringify(images),
-					title: '#' + that.topic + '#',
-					type: '1',
-					address: that.address
+					title:"",
+					content: "",
+					image1:"",
+					image2:"",
+					image3 :"",
+					video :"",
+					isOpen:"",
+					
 				}
 			});
 
